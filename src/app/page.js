@@ -1,66 +1,76 @@
-import Image from "next/image";
+"use client";
+import { useEffect } from "react";
+import HeroCarousel from "@/components/HeroCarousel";
+import ProductGrid from "@/components/ProductGrid";
+import Ingredients from "@/components/Ingredients";
+import GlowGallery from "@/components/GlowGallery";
 import styles from "./page.module.css";
 
 export default function Home() {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll(".reveal");
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      <HeroCarousel />
+      
+      <section className={styles.intro}>
+        <div className="container">
+          <div className={`${styles.introSplit} reveal`}>
+            <div className={styles.introImage}>
+              <img src="/images/hero-2.png" alt="Glossy Lips" />
+            </div>
+            <div className={styles.introContent}>
+              <span className={styles.label}>OUR MISSION</span>
+              <h2 className={styles.serif}>The Wet Look, Reimagined</h2>
+              <p>
+                We're obsessed with the shine. Not the sticky, old-school kind, but the high-performance, 
+                soul-soothing glow. Our Açaí-infused formulas are designed to drench your lips in 
+                moisture while delivering a mirror-like finish that lasts.
+              </p>
+              <div className={styles.signature}>
+                <span>Stay Glossy,</span>
+                <strong>Glow Job Team</strong>
+              </div>
+              <button className={styles.linkBtn}>DISCOVER THE SCIENCE OF SHINE</button>
+            </div>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <div className="reveal">
+        <ProductGrid />
+      </div>
+
+      <Ingredients />
+
+      <GlowGallery />
+
+      <section className={`${styles.banner} reveal`}>
+        <div className={styles.bannerOverlay}></div>
+        <div className={styles.bannerContent}>
+          <h2 className={styles.serif}>Join the Glowjob Era</h2>
+          <p>Sign up for 10% off your first order and stay updated on our legendary berry drops.</p>
+          <button className={styles.primaryBtn}>GET THE GLOW</button>
         </div>
-      </main>
+      </section>
     </div>
   );
 }

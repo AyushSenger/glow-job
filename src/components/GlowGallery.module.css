@@ -1,0 +1,119 @@
+.section {
+  padding: 10rem 0;
+  background-color: var(--bg-primary);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--accent-gold);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 100px;
+  gap: 2rem;
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.large { grid-column: span 7; grid-row: span 6; }
+.small { grid-column: span 5; grid-row: span 4; }
+.medium { grid-column: span 5; grid-row: span 5; margin-top: -100px; }
+.square { grid-column: span 7; grid-row: span 3; }
+
+.imgWrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.item:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(43, 30, 22, 0.8), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay span {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transform: translateY(20px);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.item:hover .overlay span {
+  transform: translateY(0);
+}
+
+.ctaWrap {
+  margin-top: 8rem;
+  text-align: center;
+}
+
+.viewAll {
+  padding: 1.3rem 3rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  border: 1px solid var(--text-dark);
+  transition: var(--transition);
+}
+
+.viewAll:hover {
+  background-color: var(--text-dark);
+  color: var(--text-light);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .item {
+    margin-top: 0 !important;
+    height: 400px;
+  }
+}
