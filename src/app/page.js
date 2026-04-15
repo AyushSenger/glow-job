@@ -4,12 +4,15 @@ import HeroCarousel from "@/components/HeroCarousel";
 import ProductGrid from "@/components/ProductGrid";
 import Ingredients from "@/components/Ingredients";
 import GlowGallery from "@/components/GlowGallery";
+import PressSection from "@/components/PressSection";
+import TheGlossGuide from "@/components/TheGlossGuide";
+import Reviews from "@/components/Reviews";
 import styles from "./page.module.css";
 
 export default function Home() {
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.15,
+      threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
     };
 
@@ -27,9 +30,12 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+
   return (
     <div className={styles.page}>
       <HeroCarousel />
+      
+      <PressSection />
       
       <section className={styles.intro}>
         <div className="container">
@@ -55,11 +61,15 @@ export default function Home() {
         </div>
       </section>
 
+      <TheGlossGuide />
+
       <div className="reveal">
         <ProductGrid />
       </div>
 
       <Ingredients />
+
+      <Reviews />
 
       <GlowGallery />
 
@@ -74,3 +84,4 @@ export default function Home() {
     </div>
   );
 }
+

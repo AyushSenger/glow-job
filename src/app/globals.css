@@ -72,19 +72,22 @@ button {
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .reveal.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* Staggered Children */
 .stagger-container .reveal {
-  transition-delay: calc(var(--delay) * 100ms);
+  transition-delay: calc(var(--delay, 0) * 100ms);
 }
+
 
 /* Parallax Effect */
 .parallax-wrap {

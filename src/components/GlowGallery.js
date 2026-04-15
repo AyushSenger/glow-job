@@ -2,11 +2,12 @@
 import styles from "./GlowGallery.module.css";
 
 const items = [
-  { img: "/images/hero-2.png", size: styles.large, title: "After Dark Glow" },
-  { img: "/images/hero-1.png", size: styles.small, title: "Liquid Glass" },
-  { img: "/images/hero-3.png", size: styles.medium, title: "Berry Burst" },
-  { img: "/images/product-2.png", size: styles.square, title: "Peach Nektar" }
+  { img: "/images/hero-2.png", size: styles.large, title: "Luxe Editorial" },
+  { img: "/images/hero-1.png", size: styles.small, title: "Precision Drip" },
+  { img: "/images/product-1.png", size: styles.medium, title: "After Dark" },
+  { img: "/images/hero-3.png", size: styles.square, title: "The Collection" }
 ];
+
 
 export default function GlowGallery() {
   return (

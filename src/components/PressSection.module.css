@@ -1,0 +1,52 @@
+.section {
+  padding: 4rem 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid rgba(43, 30, 22, 0.05);
+  border-bottom: 1px solid rgba(43, 30, 22, 0.05);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: rgba(43, 30, 22, 0.4);
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+  width: 100%;
+}
+
+.pub {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+  cursor: default;
+}
+
+.pub:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 2rem;
+  }
+  .pub {
+    font-size: 1rem;
+  }
+}

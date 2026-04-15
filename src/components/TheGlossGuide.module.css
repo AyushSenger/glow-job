@@ -1,0 +1,71 @@
+.section {
+  padding: 10rem 0;
+  background-color: var(--bg-primary);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.card {
+  padding: 4rem 3rem;
+  background-color: #fff;
+  border: 1px solid rgba(43, 30, 22, 0.05);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  border-color: var(--bg-secondary);
+}
+
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent-berry);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.cardDesc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(43, 30, 22, 0.7);
+  font-weight: 300;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

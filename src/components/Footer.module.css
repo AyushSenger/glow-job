@@ -1,14 +1,14 @@
 .footer {
   background-color: var(--text-dark);
   color: var(--text-light);
-  padding: 8rem 0 3rem;
+  padding: 10rem 0 4rem;
 }
 
 .grid {
   display: flex;
   justify-content: space-between;
   gap: 5rem;
-  margin-bottom: 6rem;
+  margin-bottom: 8rem;
 }
 
 .brand {
@@ -17,30 +17,51 @@
 
 .logo {
   font-family: 'Bodoni Moda', serif;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
   letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
 .tagline {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 300;
-  line-height: 1.6;
-  max-width: 300px;
-  margin-bottom: 2.5rem;
-  color: rgba(249, 249, 249, 0.7);
+  line-height: 1.8;
+  max-width: 320px;
+  margin-bottom: 3rem;
+  color: rgba(249, 249, 249, 0.6);
 }
 
 .socials {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.socials a {
+  position: relative;
+  transition: var(--transition);
+}
+
+.socials a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--bg-secondary);
+  transition: width 0.4s ease;
 }
 
 .socials a:hover {
   color: var(--bg-secondary);
+}
+
+.socials a:hover::after {
+  width: 100%;
 }
 
 .links {
@@ -51,25 +72,25 @@
 }
 
 .column h3 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  margin-bottom: 2.5rem;
-  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.2em;
+  margin-bottom: 3rem;
+  color: var(--accent-gold);
 }
 
 .column a {
   display: block;
-  font-size: 0.85rem;
-  font-weight: 300;
-  margin-bottom: 1.2rem;
-  color: rgba(249, 249, 249, 0.6);
-  transition: var(--transition);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: rgba(249, 249, 249, 0.5);
+  transition: all 0.4s ease;
 }
 
 .column a:hover {
   color: #fff;
-  transform: translateX(5px);
+  transform: translateX(8px);
 }
 
 .newsletter {
@@ -77,23 +98,28 @@
 }
 
 .newsletter h3 {
-  font-size: 1.2rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
 }
 
 .newsletter p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 300;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-  color: rgba(249, 249, 249, 0.7);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  color: rgba(249, 249, 249, 0.6);
 }
 
 .form {
   display: flex;
-  border-bottom: 1px solid rgba(249, 249, 249, 0.2);
-  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(249, 249, 249, 0.15);
+  padding-bottom: 1rem;
+  transition: border-color 0.4s ease;
+}
+
+.form:focus-within {
+  border-color: var(--bg-secondary);
 }
 
 .input {
@@ -102,8 +128,12 @@
   color: #fff;
   flex: 1;
   font-family: inherit;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+}
+
+.input::placeholder {
+  color: rgba(249, 249, 249, 0.3);
 }
 
 .input:focus {
@@ -111,10 +141,11 @@
 }
 
 .submit {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
   color: #fff;
+  transition: color 0.4s ease;
 }
 
 .submit:hover {
@@ -125,24 +156,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 3rem;
-  border-top: 1px solid rgba(249, 249, 249, 0.1);
+  padding-top: 4rem;
+  border-top: 1px solid rgba(249, 249, 249, 0.08);
   font-size: 0.75rem;
-  font-weight: 300;
-  color: rgba(249, 249, 249, 0.4);
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  color: rgba(249, 249, 249, 0.3);
+  letter-spacing: 0.15em;
 }
 
 @media (max-width: 1024px) {
   .grid {
     flex-direction: column;
-    gap: 5rem;
+    gap: 6rem;
   }
 }
 
 @media (max-width: 640px) {
   .links {
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: 4rem;
+  }
+  .column {
+    min-width: 150px;
   }
 }
+
